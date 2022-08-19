@@ -1,5 +1,15 @@
+:root {
+  --text: #112D4E;
+  --title:#3F72AF;
+  --title-hover: #3063A0;
+  --card: #DBE2EF;
+  --card-hover: #CBD2E0;
+  --back: #F9F7F7;
+}
+
 body {
   margin: 0;
+  background-color: var(--back);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +21,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

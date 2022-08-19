@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Movies Search Engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is a search engine where you can search for movies by name or a part of the name.
 
-## Available Scripts
+## Installation
+1. Clone the repository by running the following command:
+```
+git clone https://github.com/AymanElkridy/movies-search-engine.git
+```
+2. Install the required dependencies by running the following command inside the working directory:
+```
+npm install
+```
+3. Start the project by running the following command:
+```
+npm run start
+```
 
-In the project directory, you can run:
+## How to use
+Enter a string - 3 letters or more - in the search field and hit enter or click the search icon. A 10-movies-page will load with the first 10 search results. You can surf through the results pages using the `<` `>` buttons under the search bar. Each movie card is hyper-linked to it's IMDB page.
 
-### `npm start`
+## Used dependencies
+- bootstrap
+- react
+- react-bootstrap
+- react-dom
+- react-scripts
+- typescript
+- web-vitals
+- @types and @testing libraries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Credits
+This project was done from scratch by Ayman Abdelwahed (AymanElkridy), only externally depending on libraries, documentations and developers community help, as a learning experience for React.js. The idea is provided by (JavaScript Mastery Youtube Channel - React Tutorial)[https://www.youtube.com/watch?v=b9eMGE7QtTk]. The API used is a free tier of (The Open Movie Database)[https://www.omdbapi.com/].
+All the material in this project is subject to open-source policy, available and free to use for and by anyone.
