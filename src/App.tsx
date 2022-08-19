@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { OMDBSearchResult, Movie } from './types'
+import MovieCard from './MovieCard'
 import './App.css'
 
 const App = () => {
@@ -12,6 +13,19 @@ const App = () => {
   const [page, setPage] = useState<number>(0)
   const [nos, setNos] = useState<number>(0)
 
+  const loadMovies = async (query: string | undefined, page: number) => {
+    if (typeof(query) == 'string') {
+      try {
+        const response = await fetch(`${API_URL}${query}&page=${page}`)
+        const json: OMDBSearchResult = await response.json()
+        setMovies(json.Search)
+        setTotal(json.totalResults ? Math.ceil(Number(json.totalResults) / 10) : 0)
+      } catch (err) {
+        throw new Error('No movies found.')
+      }
+    }
+  }
+
   const reset = () => {
     setSearchInput('')
     setCurrent('')
@@ -20,10 +34,28 @@ const App = () => {
     setPage(0)
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value as string)
+  }
+
   const handleSubmit = async () => {
     await loadMovies(searchInput, 1)
     setCurrent(searchInput)
     setNos((prevNos) => prevNos + 1)
+  }
+
+  const handleNext = () => {
+    if (page < total) {
+      loadMovies(current, page + 1)
+      setPage((prevPage) => prevPage + 1)
+    }
+  }
+
+  const handlePrev = () => {
+    if (page > 1) {
+      loadMovies(current, page - 1)
+      setPage((prevPage) => prevPage - 1)
+    }
   }
 
   useEffect(() => {
@@ -42,42 +74,11 @@ const App = () => {
       document.getElementById('prev-svg')?.classList.add('dimmed')
     }
   }, [page, total])
-
-  const handleNext = () => {
-    if (page < total) {
-      loadMovies(current, page + 1)
-      setPage((prevPage) => prevPage + 1)
-    }
-  }
-
-  const handlePrev = () => {
-    if (page > 1) {
-      loadMovies(current, page - 1)
-      setPage((prevPage) => prevPage - 1)
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchInput(e.target.value as string)
-  }
-
-  const loadMovies = async (query: string | undefined, page: number) => {
-    if (typeof(query) == 'string') {
-      try {
-        const response = await fetch(`${API_URL}${query}&page=${page}`)
-        const json: OMDBSearchResult = await response.json()
-        setMovies(json.Search)
-        setTotal(json.totalResults ? Math.ceil(Number(json.totalResults) / 10) : 0)
-      } catch (err) {
-        throw new Error('No movies found.')
-      }
-    }
-  }
   
   return (
     <div className = 'App'>
       <h1 onClick={reset} className = 'App-header'>
-        <img className='logo' src='./img/movies-logo.png'/>
+        <img className='logo' src='./img/movies-logo.png' alt='logo'/>
         Movies!
       </h1>
       
@@ -135,29 +136,6 @@ const App = () => {
         </div>
       </div>
     </div>
-  );
-}
-
-const MovieCard = (movie: Movie) => {
-  return (
-      <div className = 'movie-card'>
-        <a target='_blank' href={`https://www.imdb.com/title/${movie.imdbID}`}>
-          <div className="poster-container">
-            <img
-              className = 'movie-poster'
-              src = {
-                movie.Poster !== 'N/A' ?
-                movie.Poster :
-                'https://via.placeholder.com/300'
-              }
-              alt = {movie.Title}
-            />
-          </div>
-          <div className="title-container">
-            <label className='movie-title'>{movie.Title} ({movie.Year})</label>
-          </div>
-        </a>
-      </div>
   )
 }
 
