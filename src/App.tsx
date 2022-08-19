@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 import './App.css'
 
 const App = () => {
-  const API_URL = 'http://www.omdbapi.com/?type=movie&apikey=9e70a85d&s='
+  const API_URL = 'https://www.omdbapi.com/?type=movie&apikey=9e70a85d&s='
 
   const [searchInput, setSearchInput] = useState<string>()
   const [current, setCurrent] = useState<string>()
