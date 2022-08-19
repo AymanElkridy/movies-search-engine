@@ -31,5 +31,5 @@ Enter a string - 3 letters or more - in the search field and hit enter or click 
 - @types and @testing libraries
 
 ## Credits
-This project was done from scratch by Ayman Abdelwahed (AymanElkridy), only externally depending on libraries, documentations and developers community help, as a learning experience for React.js. The idea is provided by (JavaScript Mastery Youtube Channel - React Tutorial)[https://www.youtube.com/watch?v=b9eMGE7QtTk]. The API used is a free tier of (The Open Movie Database)[https://www.omdbapi.com/].
+This project was done from scratch by Ayman Abdelwahed (AymanElkridy), only externally depending on libraries, documentations and developers community help, as a learning experience for React.js. The idea is provided by [JavaScript Mastery Youtube Channel - React Tutorial](https://www.youtube.com/watch?v=b9eMGE7QtTk). The API used is a free tier of [The Open Movie Database](https://www.omdbapi.com/).
 All the material in this project is subject to open-source policy, available and free to use for and by anyone.
